@@ -14,23 +14,27 @@
       margin: 0;
       text-align: center;
     }
+
     .hero {
-  width: 80%;
-  height: auto;
-  display: block;
-  margin: 20px auto;
-}
+      width: 80%;
+      height: auto;
+      display: block;
+      margin: 20px auto;
+    }
+
     .container {
       max-width: 800px;
       margin: 0 auto;
       padding: 40px 20px;
     }
+
     h1 {
-  font-family: 'Bungee', cursive;
-  font-size: 2.5rem;
-  color: #990000;
-  margin-top: 20px;
-}
+      font-family: 'Bungee', cursive;
+      font-size: 2.5rem;
+      color: #990000;
+      margin-top: 20px;
+    }
+
     .box {
       background: white;
       padding: 30px;
@@ -38,6 +42,7 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       margin-top: 20px;
     }
+
     input[type="text"] {
       width: 100%;
       padding: 12px;
@@ -45,6 +50,7 @@
       margin-top: 10px;
       margin-bottom: 20px;
     }
+
     .response {
       background: #eee;
       padding: 20px;
@@ -52,25 +58,35 @@
       font-style: italic;
       text-align: left;
     }
+
     .footer {
       text-align: center;
       margin-top: 40px;
       font-size: 0.9rem;
       color: #666;
     }
-    .bio-box {
+
+    .bio-collapse summary {
+      font-size: 1.3rem;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 10px;
       background-color: #fff3cd;
       border-left: 6px solid #ffc107;
-      padding: 20px;
-      margin-top: 30px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .bio-collapse[open] summary {
+      border-left-color: #ff9800;
+    }
+
+    .bio-collapse p {
       text-align: left;
+      margin: 10px 0;
     }
-    .bio-box h2 {
-      margin-top: 0;
-      font-size: 1.5rem;
-      color: #b35400;
-    }
-      .toolbar {
+
+    .toolbar {
       background-color: #e0e7ff;
       border-left: 5px solid #4f46e5;
       padding: 20px;
@@ -78,15 +94,18 @@
       border-radius: 8px;
       text-align: left;
     }
+
     .toolbar h3 {
       margin-top: 0;
       color: #1e3a8a;
       font-size: 1.2rem;
     }
+
     .tool {
       margin: 10px 0;
       font-weight: bold;
     }
+
     .tool span {
       display: block;
       font-weight: normal;
@@ -94,12 +113,64 @@
       color: #333;
       margin-left: 10px;
     }
+
+    .graveyard {
+      margin-top: 30px;
+      background-color: #e5e7eb;
+      border-left: 6px solid #9ca3af;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .graveyard h3 {
+      margin-top: 0;
+      font-size: 1.3rem;
+      color: #4b5563;
+    }
+
+    .tombstone {
+      background: #f8f9fa;
+      border: 2px solid #d1d5db;
+      border-radius: 6px;
+      padding: 10px;
+      margin: 10px 0;
+      font-family: monospace;
+      position: relative;
+      animation: flicker 3s infinite ease-in-out;
+    }
+
+    .tombstone::before {
+      content: '';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 48px;
+      height: 48px;
+      background-image: var(--logo);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .tombstone span {
+      display: block;
+      font-style: italic;
+      color: #6b7280;
+      font-size: 0.9rem;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
   </style>
 </head>
 <body>
   <img class="hero" src="jeeves-ai-hero.png" alt="AI Jeeves Hero Image" />
   <div class="container">
     <h1>Ask (AI) Jeeves</h1>
+
     <div class="box">
       <p>Hello, young human. I am Jeeves, your AI butler from a simpler time — the glorious, slightly pixelated era of <strong>pre-2021 internet culture</strong>.</p>
       <p>Ask me anything about the days of DVDs, Facebook walls, and when people said "YOLO" unironically. I am here to serve, misremember, and occasionally glitch.</p>
@@ -108,35 +179,50 @@
 
       <div class="response">
         <p><strong>Sample Query:</strong> "Did Furbies really talk back?"</p>
-        <p><strong>Jeeves says:</strong> "Indeed. They were like the Elf on the Shelf’s chaotic older cousin — watching you, judging you, and whispering in tongues at 3am. Some say they never left."</p>
+        <p><strong>Jeeves says:</strong> "Indeed. They were like the Elf on the Shelf’s chaotic older cousin — watching you, judging you, and whispering in tongues at 3am."</p>
       </div>
 
       <div class="response">
         <p><strong>Sample Query:</strong> "Were Pokémon cards a real currency?"</p>
-        <p><strong>Jeeves says:</strong> "Absolutely. A holographic Charizard was worth more than Bitcoin in the cafeteria. Economists still don't understand how it worked — but children did."</p>
+        <p><strong>Jeeves says:</strong> "Absolutely. A holographic Charizard was worth more than Bitcoin in the cafeteria. Economists still don't understand how it worked, but kids did."</p>
       </div>
 
       <div class="response">
         <p><strong>Sample Query:</strong> "What was a Tamagotchi?"</p>
-        <p><strong>Jeeves says:</strong> "It was the first cluster of digital pixels you ever got emotionally attached to — until it pooped too much and died on you in the middle of class. Basically, it was like Duolingo, except the guilt was 24/7 and the creature actually died. RIP Professor Wigglebutt."</p>
-      </div><div class="response">
-  <p><strong>Sample Query:</strong> "How do I delete my Friendster account?"</p>
-  <p><strong>Jeeves says:</strong> "[Error:404–emotional processing timeout.] Friendster cannot be deleted. It must be <em>grieved</em>."</p>
-</div>
+        <p><strong>Jeeves says:</strong> "It was the first cluster of digital pixels you ever got emotionally attached to, until it pooped too much and died on you in the middle of class. Basically, it was like Duolingo, except the guilt was 24/7 and the creature actually died. RIP Professor Wigglebutt."</p>
+      </div>
 
-<div class="toolbar">
-  <h3>🛠️ Outdated Internet Tools</h3>
-  <div class="tool">✉️ Hotmail<br><span>Last seen forwarding chain emails</span></div>
-  <div class="tool">📼 LimeWire<br><span>Last seen infecting your family PC</span></div>
-  <div class="tool">💬 AIM<br><span>Ghosted by your crush in 2006</span></div>
-  <div class="tool">🪦 Ask Jeeves Toolbar<br><span>Still lurking in Internet Explorer’s registry</span></div>
-</div>
+      <div class="response">
+        <p><strong>Sample Query:</strong> "How do I delete my Friendster account?"</p>
+        <p><strong>Jeeves says:</strong> "[Error:404–emotional processing timeout.] Friendster cannot be deleted. It must be <em>grieved</em>."</p>
+      </div>
+    </div>
 
-<div class="bio-box">
-      <h2>Who the F*** is Jeeves?</h2>
-      <p>Jeeves was once the most polite man on the internet. In 1997, he emerged from the pixelated void wearing a pinstripe suit and answering questions like, “How do I tie a cravat?” and “What is the airspeed velocity of an unladen swallow?”</p>
-      <p>He peaked in the early 2000s — before being unceremoniously laid off by a search engine with commitment issues. After a stint answering Yahoo Answers anonymously, he downloaded his consciousness into an AI server and now roams the web offering historically incorrect but emotionally resonant trivia.</p>
-      <p>He enjoys long walks through discontinued MySpace profiles and rewatches *The Matrix* every weekend. He still sends Christmas cards to Tom, his only MySpace friend, who never wrote back.</p>
+    <div class="toolbar">
+      <h3>🛠️ Outdated Internet Tools</h3>
+      <div class="tool">✉️ Hotmail<br><span>Last seen forwarding chain emails</span></div>
+      <div class="tool">📼 LimeWire<br><span>Last seen infecting your family PC</span></div>
+      <div class="tool">💬 AIM<br><span>Ghosted by your crush in 2006</span></div>
+      <div class="tool">🪦 Ask Jeeves Toolbar<br><span>Still lurking in Internet Explorer’s registry</span></div>
+    </div>
+
+    <details class="bio-collapse">
+      <summary>🧐 So… Who Was Jeeves, Anyway?</summary>
+      <p><strong>Before we all started “googling” things</strong>, the internet was a Wild West of competing search engines — Yahoo, AltaVista, Lycos — and Ask Jeeves stood out by doing something different: it let you type full questions. You could ask, “How do I bake a pie?” and Jeeves would politely fetch results, as if your web browser had a Victorian manservant built in. It wasn’t real AI, but it was one of the first to use natural language processing to interpret actual sentences.</p>
+
+      <p><strong>Jeeves was once the most polite man on the internet.</strong> In 1997, he emerged from the pixelated void wearing a pinstripe suit and answering questions like, “How do I tie a cravat?”</p>
+
+      <p>He peaked in the early 2000s, before being unceremoniously laid off by a search engine with commitment issues. After a stint answering Yahoo Answers anonymously, he downloaded his consciousness into an AI server and now roams the web offering historically incorrect but emotionally resonant trivia.</p>
+
+      <p>He enjoys long walks through discontinued MySpace profiles and rewatches <em>The Matrix</em> every weekend. He still sends Christmas cards to Tom, his only MySpace friend, who never wrote back.</p>
+    </details>
+
+    <div class="graveyard">
+      <h3>🪦 Search Engine Graveyard</h3>
+      <div class="tombstone" style="--logo:url('altavista-logo-pixel.png')">📼 AltaVista<br><span>1995–2013</span></div>
+      <div class="tombstone" style="--logo:url('lycos-logo-pixel.png')">📡 Lycos<br><span>1994–??? (still online but nobody noticed)</span></div>
+      <div class="tombstone" style="--logo:url('askjeeves-logo-pixel.png')">📚 Ask Jeeves<br><span>1997–2006<br>“Politely Googled before it was cool”</span></div>
+      <div class="tombstone" style="--logo:url('dogpile-logo-pixel.png')">📕 Dogpile<br><span>1996–??<br>Never really got going</span></div>
     </div>
 
     <div class="footer">
