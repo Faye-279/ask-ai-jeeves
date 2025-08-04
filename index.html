@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ask (AI) Jeeves</title>
-  <link rel="icon" href="favicon.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet" />
   <style>
     body {
       background-color: #f4f4f4;
@@ -41,6 +41,7 @@
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       margin-top: 20px;
+      text-align: left;
     }
 
     input[type="text"] {
@@ -83,107 +84,99 @@
     }
 
     .bio-collapse p {
-      text-align: left;
       margin: 10px 0;
     }
 
+    /* Retro terminal style for sample queries */
+    .retro-search {
+      background-color: #001100; /* dark green */
+      color: #33ff33; /* neon green */
+      font-family: 'Courier New', monospace;
+      border: 2px solid #33ff33;
+      border-radius: 4px;
+      padding: 10px;
+      box-shadow: 0 0 8px #33ff33;
+      margin-bottom: 15px;
+      white-space: pre-wrap;
+      position: relative;
+    }
+
+    /* Blinking cursor effect */
+    .retro-search::after {
+      content: '_';
+      animation: blink 1s steps(2, start) infinite;
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      font-weight: bold;
+      color: #33ff33;
+    }
+
+    @keyframes blink {
+      to {
+        visibility: hidden;
+      }
+    }
+
+    /* Updated Outdated Internet Tools styles */
+
     .toolbar {
       font-family: 'Courier New', monospace;
-      background-color: #e0e7ff;
-      border-left: 5px solid #4f46e5;
-      padding: 20px;
+      background-color: #0b0f0a; /* very dark green/black */
+      border-left: 5px solid #33ff33; /* neon green */
+      padding: 25px 20px;
       margin-top: 30px;
       border-radius: 8px;
       text-align: left;
+      color: #33ff33;
+      box-shadow: 0 0 15px #33ff33;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      transition: background-color 0.3s ease;
     }
 
     .toolbar h3 {
       font-family: 'Courier New', monospace;
-      background-color: #fff;
-      border: 2px inset #ccc;
-      padding: 10px;
-      font-size: 1.1rem;
-      color: #222;
+      background-color: #072804; /* darker green */
+      border: 2px inset #33ff33;
+      padding: 12px 15px;
+      font-size: 1.3rem;
+      color: #aaffaa;
       text-align: left;
       border-radius: 4px;
-      box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
-      display: inline-block;
-      width: 100%;
+      box-shadow: inset 0 0 6px #33ff33;
       margin-top: 0;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
     }
 
     .tool {
-      font-family: 'Courier New', monospace;
-      margin: 10px 0;
-      font-weight: bold;
+      margin: 15px 0;
+      cursor: default;
+      padding: 10px 15px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+      user-select: none;
     }
 
+    .tool:hover {
+      background-color: #33ff33;
+      color: #000000;
+      box-shadow: 0 0 15px #33ff33;
+    }
+    
     .tool span {
-      font-family: 'Courier New', monospace;
-      display: block;
       font-weight: normal;
       font-style: italic;
-      color: #333;
-      margin-left: 10px;
-    }
-
-    .search-style {
-      background-color: #fff;
-      border: 2px inset #ccc;
-      font-family: 'Courier New', monospace;
-      padding: 10px;
-      font-size: 1.1rem;
-      color: #222;
-      text-align: left;
-      border-radius: 4px;
-      box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
-      display: inline-block;
-      width: 100%;
-    }
-
-    .tombstone {
-      background: #f8f9fa;
-      border: 2px solid #d1d5db;
-      border-radius: 6px;
-      padding: 10px;
-      margin: 10px 0;
-      font-family: monospace;
-      position: relative;
-    }
-
-    .tombstone img {
+      color: #88ff88;
       display: block;
-      margin: 0 auto 10px;
+      margin-top: 4px;
+      transition: color 0.3s ease;
     }
 
-    .tombstone span {
-      display: block;
-      font-style: italic;
-      color: #6b7280;
-      font-size: 0.9rem;
-    }
-
-    .glitch-intro {
-      font-family: 'Courier New', monospace;
-      font-size: 1rem;
-      color: #444;
-      margin: 0;
-      padding: 0;
-      animation: glitch-flicker 1.5s steps(1) infinite alternate;
-    }
-
-    @keyframes glitch-flicker {
-      0% { opacity: 1; }
-      10% { opacity: 0.3; }
-      20% { opacity: 1; }
-      30% { opacity: 0.6; }
-      40% { opacity: 0.9; }
-      50% { opacity: 0.4; }
-      60% { opacity: 1; }
-      70% { opacity: 0.2; }
-      80% { opacity: 0.8; }
-      90% { opacity: 0.5; }
-      100% { opacity: 1; }
+    .tool:hover span {
+      color: #004400;
     }
   </style>
 </head>
@@ -197,26 +190,70 @@
       <summary><img src="askjeeves-logo-pixel.png" alt="Ask Jeeves Logo" width="32" height="32" style="vertical-align: middle; margin-right: 10px;" /> Search Engine Graveyard</summary>
 
       <div class="box">
+        <h2 class="search-style">Sample Queries You Can Try</h2>
+
+        <div class="retro-search">
+          <strong>Search:</strong> “What happened to my MySpace friend Tom?”<br />
+          <em>Jeeves:</em> “Probably trapped in an eternal loop of updating his mood song and reconsidering those Top 8 choices.”
+        </div>
+
+        <div class="retro-search">
+          <strong>Search:</strong> “Are Furbies just ’90s smart home assistants with attitude?”<br />
+          <em>Jeeves:</em> “Basically. Alexa, but furrier, blinking weirdly and shouting—‘Hootie-hoo! Me hungry! Yum!’—randomly at 3 AM. The stuff of nightmares.”
+        </div>
+
+        <div class="retro-search">
+          <strong>Search:</strong> “Duolingo guilt vs Tamagotchi guilt — which haunts more?”<br />
+          <em>Jeeves:</em> “Duolingo guilt is a passive-aggressive reminder; Tamagotchi guilt is a digital funeral you’ll never forget.”
+        </div>
+
+        <div class="retro-search">
+          <strong>Search:</strong> “Was my holographic Charizard card really the Bitcoin of the playground?”<br />
+          <em>Jeeves:</em> “Valuable until you traded it for some questionable cafeteria snacks and lifelong regret.”
+        </div>
+      </div>
+
+      <div class="box">
         <h2 class="search-style">So… Who Was Jeeves, Anyway?</h2>
         <p>Jeeves wasn’t just a search engine — he was your tuxedoed search butler before AI assistants were cool. Back when Yahoo, AltaVista, and Lycos ruled the web, Jeeves let you ask full questions like “Why do Furbies blink at night?” instead of typing “furby blinking curse.”</p>
         <p>He answered politely and probably didn’t sell your data. Then Google showed up, ‘Googling’ became a verb, and Jeeves wondered whether his ringtone was still the coolest on the block.</p>
         <p>In 2006, Jeeves got unplugged with the last tortured scream of a dial-up modem and banished to the digital wasteland of forgotten MySpace profiles—awkwardly waving at Tom, his only friend. Meanwhile, Pluto lost its planet status, AIM perfected the art of ghosting, and LimeWire was the wild west where downloading your favorite song came with a side of malware roulette.</p>
         <p>The internet was in full-on evolution mode. YouTube was barely a year old — still packed with early viral hits like Charlie the Unicorn and Badger Badger Badger — Google Maps had just launched, changing the game so we no longer had to ask strangers for directions or get hopelessly lost. Jeeves tweaked his MySpace mood song one last time, then gracefully logged off forever.</p>
-        <p>Still, for a moment in time, Jeeves made the internet feel a little more polite — and a lot weirder.</p>
+        <p><a href="https://au.pcmag.com/gallery/16660/nine-years-of-askcom" target="_blank" rel="noopener noreferrer">Still, for a moment in time, Jeeves made the internet feel a little more polite</a> — and a lot weirder.</p>
       </div>
 
       <div class="toolbar">
         <h3>Outdated Internet Tools</h3>
-        <div class="tool">Clippy<span>Ever been judged by a paperclip?</span></div>
-        <div class="tool">AOL Chatrooms<span>Where the first question wasn’t ‘Hi’ but ‘A/S/L?’</span></div>
-        <div class="tool">MSN Messenger<span>Where friendships bloomed and were ghosted in the same chat window.</span></div>
-        <div class="tool">Napster<span>Your computer definitely got a virus for that Linkin Park track.</span></div>
+        <div class="tool">
+          Clippy
+          <span>Ever been judged by a paperclip?</span>
+        </div>
+        <div class="tool">
+          AOL Chatrooms
+          <span>Where the first question wasn’t ‘Hi’ but ‘A/S/L?’</span>
+        </div>
+        <div class="tool">
+          MSN Messenger
+          <span>Where friendships bloomed and were ghosted in the same chat window.</span>
+        </div>
+        <div class="tool">
+          Napster
+          <span>Your computer definitely got a virus for that Linkin Park track.</span>
+        </div>
       </div>
 
-      <div class="box">
-        <h2 class="search-style">Sample Queries You Can Try</h2>
-        <ul style="text-align: left; font-family: 'Courier New', monospace;">
-          <li>“What happened to my MySpace friend Tom?”</li>
-          <li>“Are Furbies just Elf on the Shelf with better surveillance?”</li>
-          <li>“Duolingo guilt vs Tamagotchi guilt — which haunts more?”</li>
-          <li>“Remember when your holographic Charizard card was the Bitcoin
+      <div class="graveyard">
+        <div class="tombstone">
+          <img src="askjeeves-logo-pixel.png" alt="Ask Jeeves Logo" width="48" height="48" />
+          <strong>Ask Jeeves</strong><br /><span>1997–2006</span>
+        </div>
+      </div>
+    </details>
+
+    <div class="footer">
+      © 2025 Ask (AI) Jeeves — Rebooted, Retired, and Ready to Reminisce.<br />
+      Not affiliated with Ask.com. Parody site for educational and emotional damage purposes only.
+    </div>
+  </div>
+</body>
+</html>
