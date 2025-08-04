@@ -83,36 +83,6 @@
       text-align: left;
     }
 
-    /* Retro search boxes with burgundy theme */
-    .retro-search {
-      background-color: #330a0a; /* dark burgundy background */
-      color: #ff9999;            /* soft pinkish text */
-      border-radius: 4px;
-      padding: 10px;
-      margin-bottom: 15px;
-      box-shadow: 0 0 8px #cc4444; /* burgundy glow */
-      white-space: pre-wrap;
-      position: relative;
-      border: 2px solid #cc4444; /* burgundy border */
-      font-family: 'Courier New', monospace;
-    }
-
-    .retro-search::after {
-      content: '_';
-      animation: blink 1s steps(2, start) infinite;
-      position: absolute;
-      right: 10px;
-      bottom: 10px;
-      font-weight: bold;
-      color: #cc4444; /* burgundy blinking cursor */
-    }
-
-    @keyframes blink {
-      to {
-        visibility: hidden;
-      }
-    }
-
     /* Outdated Internet Tools updated colors */
     .toolbar {
       background-color: #f4f0ee; /* soft cream */
@@ -184,46 +154,99 @@
       color: #666;
       font-family: 'Courier New', monospace;
     }
+
+    /* Sample Queries interactive style */
+    .qa-container {
+      max-width: 600px;
+      margin: 0 auto 30px auto;
+      font-family: 'Courier New', monospace;
+    }
+    .question {
+      background-color: #330a0a;
+      color: #ff9999;
+      padding: 10px 15px;
+      cursor: pointer;
+      border: 1px solid #cc4444;
+      margin-bottom: 2px;
+      border-radius: 4px;
+      user-select: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .question:hover {
+      background-color: #cc4444;
+      color: #330a0a;
+    }
+    .answer {
+      background-color: #440d0d;
+      color: #ffb3b3;
+      padding: 10px 20px;
+      border-left: 4px solid #cc4444;
+      border-radius: 0 0 6px 6px;
+      display: none;
+      margin-bottom: 10px;
+    }
+    .answer.active {
+      display: block;
+    }
+
+    /* Glitch intro */
+    .glitch-intro {
+      font-family: 'Courier New', monospace;
+      font-size: 1rem;
+      color: #444;
+      margin: 0 0 20px 0;
+      animation: glitch-flicker 1.5s steps(1) infinite alternate;
+    }
+
+    @keyframes glitch-flicker {
+      0% { opacity: 1; }
+      10% { opacity: 0.3; }
+      20% { opacity: 1; }
+      30% { opacity: 0.6; }
+      40% { opacity: 0.9; }
+      50% { opacity: 0.4; }
+      60% { opacity: 1; }
+      70% { opacity: 0.2; }
+      80% { opacity: 0.8; }
+      90% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
   </style>
 </head>
 <body>
-  <img class="hero" src="jeeves-ai-hero.png" alt="Ask AI Jeeves Hero Image" />
+  <img class="hero" src="jeeves-ai-hero.png" alt="AI Jeeves Hero Image" />
   <div class="container">
     <h1>Ask (AI) Jeeves</h1>
     <p class="glitch-intro">[ Reverting to Old Jeeves Protocol... ]</p>
 
     <details class="bio-collapse">
-      <summary><img src="askjeeves-logo-pixel.png" alt="Ask Jeeves Logo" width="48" height="48" style="vertical-align: middle; margin-right: 10px;" /> Search Engine Graveyard</summary>
+      <summary><img src="askjeeves-logo-pixel.png" alt="Ask Jeeves Logo" width="32" height="32" style="vertical-align: middle; margin-right: 10px;" /> Search Engine Graveyard</summary>
 
       <div class="box">
+
         <h2 class="search-style">Sample Queries You Can Try</h2>
 
-        <div class="retro-search">
-          <div><strong>Search:</strong> “What happened to my MySpace friend Tom?”</div>
-          <div><em>Jeeves:</em> “Probably trapped in an eternal loop of updating his mood song and reconsidering those Top 8 choices.”</div>
+        <div class="qa-container">
+          <div class="question" data-answer="ans1"><strong>Search:</strong> What happened to my MySpace friend Tom?</div>
+          <div id="ans1" class="answer">Jeeves: “Probably trapped in an eternal loop of updating his mood song and reconsidering those Top 8 choices.”</div>
+
+          <div class="question" data-answer="ans2"><strong>Search:</strong> Are Furbies just ’90s smart home assistants with attitude?</div>
+          <div id="ans2" class="answer">Jeeves: “Basically. Alexa, but furrier, blinking weirdly and shouting—‘Hootie-hoo! Me hungry! Yum!’—randomly at 3 AM. The stuff of nightmares.”</div>
+
+          <div class="question" data-answer="ans3"><strong>Search:</strong> Duolingo guilt vs Tamagotchi guilt — which haunts more?</div>
+          <div id="ans3" class="answer">Jeeves: “Duolingo guilt is a passive-aggressive reminder; Tamagotchi guilt is a digital funeral you’ll never forget.”</div>
+
+          <div class="question" data-answer="ans4"><strong>Search:</strong> Was my holographic Charizard card really the Bitcoin of the playground?</div>
+          <div id="ans4" class="answer">Jeeves: “Valuable until you traded it for some questionable cafeteria snacks and lifelong regret.”</div>
         </div>
 
-        <div class="retro-search">
-          <div><strong>Search:</strong> “Are Furbies just ’90s smart home assistants with attitude?”</div>
-          <div><em>Jeeves:</em> “Basically. Alexa, but furrier, blinking weirdly and shouting—‘Hootie-hoo! Me hungry! Yum!’—randomly at 3 AM. The stuff of nightmares.”</div>
-        </div>
-
-        <div class="retro-search">
-          <div><strong>Search:</strong> “Duolingo guilt vs Tamagotchi guilt, which haunts more?”</div>
-          <div><em>Jeeves:</em> “Duolingo guilt is a passive-aggressive reminder; Tamagotchi guilt is a digital funeral you’ll never forget.”</div>
-        </div>
-
-        <div class="retro-search">
-          <div><strong>Search:</strong> “Was my holographic Charizard card really the Bitcoin of the playground?”</div>
-          <div><em>Jeeves:</em> “Valuable until you traded it for some questionable cafeteria snacks and lifelong regret.”</div>
-        </div>
       </div>
 
       <div class="box">
         <h2 class="search-style">So… Who Was Jeeves, Anyway?</h2>
-        <p>Jeeves wasn’t just a search engine, he was your tuxedoed search butler - well before AI assistants existed. Back when Yahoo, AltaVista, and Lycos ruled the web, Jeeves let you ask full questions like “Why do Furbies blink at night?” instead of typing “furby blinking curse.”</p>
-        <p>He answered politely (and probably didn’t sell your data). Then Google showed up, ‘Googling’ became a verb, and Jeeves wondered whether his ringtone was still the coolest on the block...</p>
-        <p>In 2006, Jeeves got unplugged with the last tortured scream of a dial-up modem and banished to the digital wasteland of forgotten MySpace profiles—awkwardly waving at Tom, his first friend. Meanwhile, Pluto lost its planet status, AIM perfected the art of ghosting, and LimeWire was the wild west where downloading your favorite song came with a side of malware roulette.</p>
+        <p>Jeeves wasn’t just a search engine — he was your tuxedoed search butler before AI assistants were cool. Back when Yahoo, AltaVista, and Lycos ruled the web, Jeeves let you ask full questions like “Why do Furbies blink at night?” instead of typing “furby blinking curse.”</p>
+        <p>He answered politely and probably didn’t sell your data. Then Google showed up, ‘Googling’ became a verb, and Jeeves wondered whether his ringtone was still the coolest on the block.</p>
+        <p>In 2006, Jeeves got unplugged with the last tortured scream of a dial-up modem and banished to the digital wasteland of forgotten MySpace profiles—awkwardly waving at Tom, his only friend. Meanwhile, Pluto lost its planet status, AIM perfected the art of ghosting, and LimeWire was the wild west where downloading your favorite song came with a side of malware roulette.</p>
         <p>The internet was in full-on evolution mode. YouTube was barely a year old — still packed with early viral hits like Charlie the Unicorn and Badger Badger Badger — Google Maps had just launched, changing the game so we no longer had to ask strangers for directions or get hopelessly lost. Jeeves tweaked his MySpace mood song one last time, then gracefully logged off forever.</p>
         <p><a href="https://au.pcmag.com/gallery/16660/nine-years-of-askcom" target="_blank" rel="noopener noreferrer">Still, for a moment in time, Jeeves made the internet feel a little more polite</a> — and a lot weirder.</p>
       </div>
@@ -236,7 +259,7 @@
         </div>
         <div class="tool">
           AOL Chatrooms
-          <span>Where the first question wasn’t ‘Hi’ but ‘a/s/l?’</span>
+          <span>Where the first question wasn’t ‘Hi’ but ‘A/S/L?’</span>
         </div>
         <div class="tool">
           MSN Messenger
@@ -257,9 +280,25 @@
     </details>
 
     <div class="footer">
-      © 2025 Ask (AI) Jeeves. Rebooted, Retired, and Ready to Reminisce.<br />
+      © 2025 Ask (AI) Jeeves — Rebooted, Retired, and Ready to Reminisce.<br />
       Not affiliated with Ask.com. Parody site for educational and emotional damage purposes only.
     </div>
   </div>
+
+  <script>
+    const questions = document.querySelectorAll('.question');
+    questions.forEach(q => {
+      q.addEventListener('click', () => {
+        const answerId = q.getAttribute('data-answer');
+        const answers = document.querySelectorAll('.answer');
+        answers.forEach(a => a.classList.remove('active'));
+        const selected = document.getElementById(answerId);
+        selected.classList.add('active');
+      });
+    });
+
+    // Open first answer by default
+    document.getElementById('ans1').classList.add('active');
+  </script>
 </body>
 </html>
