@@ -8,11 +8,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet" />
   <style>
     body {
+      font-family: 'Courier New', monospace;
       background-color: #f4f4f4;
-      font-family: "Georgia", serif;
       color: #222;
       margin: 0;
       text-align: center;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Courier New', monospace;
+      color: #990000;
+      letter-spacing: 0.1em;
+      margin-top: 0;
     }
 
     .hero {
@@ -28,16 +35,9 @@
       padding: 40px 20px;
     }
 
-    h1 {
-      font-family: 'Bungee', cursive;
-      font-size: 2.5rem;
-      color: #990000;
-      margin-top: 20px;
-    }
-
     /* Ask Jeeves style dropdown */
     .bio-collapse summary {
-      font-family: 'Georgia', serif;
+      font-family: 'Courier New', monospace;
       font-weight: bold;
       font-size: 1.4rem;
       padding: 12px 18px;
@@ -69,7 +69,6 @@
         0 4px 8px rgba(160, 196, 232, 0.3);
       padding: 30px;
       margin-top: 15px;
-      font-family: 'Georgia', serif;
       color: #2a3e5c;
       text-align: left;
     }
@@ -84,18 +83,18 @@
       text-align: left;
     }
 
-    /* Retro terminal style for sample queries */
+    /* Retro search boxes with burgundy theme */
     .retro-search {
-      background-color: #001100;
-      color: #33ff33;
-      font-family: 'Courier New', monospace;
+      background-color: #330a0a; /* dark burgundy background */
+      color: #ff9999;            /* soft pinkish text */
       border-radius: 4px;
       padding: 10px;
       margin-bottom: 15px;
-      box-shadow: 0 0 8px #33ff33;
+      box-shadow: 0 0 8px #cc4444; /* burgundy glow */
       white-space: pre-wrap;
       position: relative;
-      border: 2px solid #33ff33;
+      border: 2px solid #cc4444; /* burgundy border */
+      font-family: 'Courier New', monospace;
     }
 
     .retro-search::after {
@@ -105,7 +104,7 @@
       right: 10px;
       bottom: 10px;
       font-weight: bold;
-      color: #33ff33;
+      color: #cc4444; /* burgundy blinking cursor */
     }
 
     @keyframes blink {
@@ -114,36 +113,36 @@
       }
     }
 
-    /* Outdated Internet Tools styling (retro terminal style) */
+    /* Outdated Internet Tools updated colors */
     .toolbar {
-      font-family: 'Courier New', monospace;
-      background-color: #0b0f0a;
-      border-left: 5px solid #33ff33;
+      background-color: #f4f0ee; /* soft cream */
+      border-left: 5px solid #990000; /* burgundy accent */
       padding: 25px 20px;
       margin-top: 30px;
       border-radius: 8px;
       text-align: left;
-      color: #33ff33;
-      box-shadow: 0 0 15px #33ff33;
+      color: #4b1b1b; /* dark burgundy */
+      box-shadow: 0 0 10px rgba(153, 0, 0, 0.2);
       font-size: 1rem;
       letter-spacing: 0.05em;
       transition: background-color 0.3s ease;
+      font-family: 'Courier New', monospace;
     }
 
     .toolbar h3 {
-      font-family: 'Courier New', monospace;
-      background-color: #072804;
-      border: 2px inset #33ff33;
+      background-color: #e6eff7; /* soft blue */
+      border: 2px inset #7a95c5;
       padding: 12px 15px;
       font-size: 1.3rem;
-      color: #aaffaa;
+      color: #4b1b1b;
       text-align: left;
       border-radius: 4px;
-      box-shadow: inset 0 0 6px #33ff33;
+      box-shadow: inset 0 0 6px #c4d1ea;
       margin-top: 0;
       margin-bottom: 20px;
       text-transform: uppercase;
       letter-spacing: 0.1em;
+      font-family: 'Courier New', monospace;
     }
 
     .tool {
@@ -153,25 +152,28 @@
       border-radius: 6px;
       transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
       user-select: none;
+      color: #4b1b1b;
+      font-family: 'Courier New', monospace;
     }
 
     .tool:hover {
-      background-color: #33ff33;
-      color: #000000;
-      box-shadow: 0 0 15px #33ff33;
+      background-color: #990000;
+      color: #fff;
+      box-shadow: 0 0 12px rgba(153, 0, 0, 0.6);
     }
-    
+
     .tool span {
       font-weight: normal;
       font-style: italic;
-      color: #88ff88;
+      color: #7a5a5a;
       display: block;
       margin-top: 4px;
       transition: color 0.3s ease;
+      font-family: 'Courier New', monospace;
     }
 
     .tool:hover span {
-      color: #004400;
+      color: #ffdede;
     }
 
     /* General styles */
@@ -180,6 +182,7 @@
       margin-top: 40px;
       font-size: 0.9rem;
       color: #666;
+      font-family: 'Courier New', monospace;
     }
   </style>
 </head>
