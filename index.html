@@ -97,6 +97,7 @@
       letter-spacing: 0.05em;
       transition: background-color 0.3s ease;
       font-family: 'Courier New', monospace;
+      position: relative;
     }
 
     .toolbar h3 {
@@ -124,6 +125,7 @@
       user-select: none;
       color: #4b1b1b;
       font-family: 'Courier New', monospace;
+      position: relative;
     }
 
     .tool:hover {
@@ -146,13 +148,20 @@
       color: #ffdede;
     }
 
-    /* General styles */
-    .footer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 0.9rem;
-      color: #666;
-      font-family: 'Courier New', monospace;
+    .tool-logo {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 30px;
+      width: auto;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .tool:hover .tool-logo {
+      opacity: 1;
     }
 
     /* Sample Queries interactive style */
@@ -187,6 +196,27 @@
     }
     .answer.active {
       display: block;
+    }
+
+    /* Vintage frame for Jeeves image */
+    .vintage-frame {
+      max-width: 300px;
+      margin: 30px auto 0 auto;
+      padding: 15px;
+      background: #222;
+      border: 8px solid #666;
+      border-radius: 15px;
+      box-shadow:
+        inset 0 0 30px #444,
+        0 10px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .vintage-frame img {
+      width: 100%;
+      display: block;
+      border-radius: 8px;
+      filter: grayscale(20%) contrast(1.1);
+      image-rendering: pixelated; /* for pixel art style */
     }
 
     /* Glitch intro */
@@ -248,6 +278,11 @@
         <p>He answered politely and probably didn’t sell your data. Then Google showed up, ‘Googling’ became a verb, and Jeeves wondered whether his ringtone was still the coolest on the block.</p>
         <p>In 2006, Jeeves got unplugged with the last tortured scream of a dial-up modem and banished to the digital wasteland of forgotten MySpace profiles—awkwardly waving at Tom, his only friend. Meanwhile, Pluto lost its planet status, AIM perfected the art of ghosting, and LimeWire was the wild west where downloading your favorite song came with a side of malware roulette.</p>
         <p>The internet was in full-on evolution mode. YouTube was barely a year old — still packed with early viral hits like Charlie the Unicorn and Badger Badger Badger — Google Maps had just launched, changing the game so we no longer had to ask strangers for directions or get hopelessly lost. Jeeves tweaked his MySpace mood song one last time, then gracefully logged off forever.</p>
+
+        <div class="vintage-frame">
+          <img src="ask-jeeves-browser.png" alt="Vintage Jeeves Illustration" />
+        </div>
+
         <p><a href="https://au.pcmag.com/gallery/16660/nine-years-of-askcom" target="_blank" rel="noopener noreferrer">Still, for a moment in time, Jeeves made the internet feel a little more polite</a> — and a lot weirder.</p>
       </div>
 
@@ -255,18 +290,22 @@
         <h3>Outdated Internet Tools</h3>
         <div class="tool">
           Clippy
+          <img src="pngegg.png" alt="Clippy Logo" class="tool-logo" />
           <span>Ever been judged by a paperclip?</span>
         </div>
         <div class="tool">
           AOL Chatrooms
+          <img src="aol.png" alt="AOL Logo" class="tool-logo" />
           <span>Where the first question wasn’t ‘Hi’ but ‘A/S/L?’</span>
         </div>
         <div class="tool">
           MSN Messenger
+          <img src="msn.png" alt="MSN Logo" class="tool-logo" />
           <span>Where friendships bloomed and were ghosted in the same chat window.</span>
         </div>
         <div class="tool">
           Napster
+          <img src="napster.png" alt="Napster Logo" class="tool-logo" />
           <span>Your computer definitely got a virus for that Linkin Park track.</span>
         </div>
       </div>
